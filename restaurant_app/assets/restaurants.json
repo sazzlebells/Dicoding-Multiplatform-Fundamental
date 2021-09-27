@@ -1,0 +1,262 @@
+[
+    {
+        "name": "Kampoeng Bamboe Restoran dan Homestay",
+        "location": "Bandar Lampung",
+        "address": "Jl.  Griya Utama No. 57, Way Halim",
+        "imageUrl": "assets/images/kampoeng-bamboe.png",
+        "rating": "4.3",
+        "mapUrl": "https://goo.gl/maps/Byjhnsnur6autx2C8",
+        "phone": "0721704455",
+        "menus": [
+            {
+                "menu": "Nasi Uduk",
+                "price": "25.000",
+                "imageUrl": "https://asset.kompas.com/crops/YJXX1aIeNs-2WHjw4VJDWJBywT0=/0x0:1000x667/750x500/data/photo/2020/07/05/5f01435b5c965.jpg"
+            },
+            {
+                "menu": "Nasi Goreng",
+                "price": "23.000",
+                "imageUrl": "https://asset.kompas.com/crops/liot8ogozEEYAUXlZNXyGL0pTQc=/3x0:700x465/750x500/data/photo/2021/04/08/606e886b972ac.jpeg"
+            },
+            {
+                "menu": "Ayam Opor",
+                "price": "27.000",
+                "imageUrl": "https://asset.kompas.com/crops/VhBtjyhh4_yofTk-0OzaGD7s-7A=/0x0:1000x667/750x500/data/photo/2020/05/21/5ec67d4e9e153.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Randu Resto",
+        "location": "Bandar Lampung",
+        "address": "2a, Jl. Kamboja No.1, Tanjung Karang Timur",
+        "imageUrl": "assets/images/randu-resto.jpg",
+        "rating": "4.5",
+        "mapUrl": "https://goo.gl/maps/Vmncc16yhzCiyUCt9",
+        "phone": "0721256680",
+        "menus": [
+            {
+                "menu": "Ikan Bakar",
+                "price": "30.000",
+                "imageUrl": "https://asset.kompas.com/crops/J0ARoySS4ZFviSelgHTMsxHPNv0=/0x0:1000x667/750x500/data/photo/2020/12/17/5fdb3cd0c1525.jpg"
+            },
+            {
+                "menu": "Ikan Goreng",
+                "price": "20.000",
+                "imageUrl": "https://kurio-img.kurioapps.com/20/04/29/393c094c-9606-49b1-8480-bae2a4a463f4.jpeg"
+            },
+            {
+                "menu": "Mie Goreng",
+                "price": "15.000",
+                "imageUrl": "https://asset.kompas.com/crops/vlWEq5NmvFZSH-Z6vq51J9aRCFA=/0x0:1000x667/750x500/data/photo/2020/11/03/5fa153edd14fb.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Nasi Uduk Toha",
+        "location": "Bandar Lampung",
+        "address": "Jl. Kartini No.105, Tanjung Karang Pusat",
+        "imageUrl": "assets/images/toha.jpg",
+        "rating": "4.4",
+        "mapUrl": "https://goo.gl/maps/yrz2oK1NvzLuykMD9",
+        "phone": "0721251520",
+        "menus": [
+            {
+                "menu": "Nasi Uduk",
+                "price": "25.000",
+                "imageUrl": "https://asset.kompas.com/crops/YJXX1aIeNs-2WHjw4VJDWJBywT0=/0x0:1000x667/750x500/data/photo/2020/07/05/5f01435b5c965.jpg"
+            },
+            {
+                "menu": "Nasi Goreng",
+                "price": "23.000",
+                "imageUrl": "https://asset.kompas.com/crops/liot8ogozEEYAUXlZNXyGL0pTQc=/3x0:700x465/750x500/data/photo/2021/04/08/606e886b972ac.jpeg"
+            },
+            {
+                "menu": "Ayam Opor",
+                "price": "27.000",
+                "imageUrl": "https://asset.kompas.com/crops/VhBtjyhh4_yofTk-0OzaGD7s-7A=/0x0:1000x667/750x500/data/photo/2020/05/21/5ec67d4e9e153.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Pindang Meranjat Liwa",
+        "location": "Lampung Barat",
+        "address": "Ps. Liwa, Balik Bukit",
+        "imageUrl": "assets/images/pindang.JPG",
+        "rating": "4.5",
+        "mapUrl": "https://goo.gl/maps/ABgKADKTGRW8kSG19",
+        "phone": "081278916691",
+        "menus": [
+            {
+                "menu": "Pindang Patin",
+                "price": "27.000",
+                "imageUrl": "https://i1.wp.com/img-global.cpcdn.com/recipes/764a792b598bc286/751x532cq70/pindang-patin-foto-resep-utama.jpg?resize=1502%2C1064"
+            },
+            {
+                "menu": "Pindang Tongkol",
+                "price": "29.000",
+                "imageUrl": "https://www.resepkekinian.com/wp-content/uploads/2020/11/Pindang-Tongkol-Bumbu-Sarden.jpg"
+            },
+            {
+                "menu": "Pindang Bandeng",
+                "price": "28.000",
+                "imageUrl": "https://asset.kompas.com/crops/5bC2ugvFO9QasnVVj3qMsuOvbTk=/0x206:360x446/750x500/data/photo/2020/08/14/5f36a00248ba1.jpeg"
+            }
+        ]
+    },
+    {
+        "name": "Rumah Makan Pondok Bambu Sabar Beghak",
+        "location": "Lampung Barat",
+        "address": "Jl. Jend. Sudirman, Balik Bukit",
+        "imageUrl": "assets/images/sabah-beghak.jpg",
+        "rating": "4.3",
+        "mapUrl": "https://goo.gl/maps/63D17PCM1ZbvYZya9",
+        "phone": "085377413398",
+        "menus": [
+            {
+                "menu": "Ikan Bakar",
+                "price": "30.000",
+                "imageUrl": "https://asset.kompas.com/crops/J0ARoySS4ZFviSelgHTMsxHPNv0=/0x0:1000x667/750x500/data/photo/2020/12/17/5fdb3cd0c1525.jpg"
+            },
+            {
+                "menu": "Ikan Goreng",
+                "price": "20.000",
+                "imageUrl": "https://kurio-img.kurioapps.com/20/04/29/393c094c-9606-49b1-8480-bae2a4a463f4.jpeg"
+            },
+            {
+                "menu": "Mie Goreng",
+                "price": "15.000",
+                "imageUrl": "https://asset.kompas.com/crops/vlWEq5NmvFZSH-Z6vq51J9aRCFA=/0x0:1000x667/750x500/data/photo/2020/11/03/5fa153edd14fb.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Rumah Makan Siang Malam",
+        "location": "Lampung Selatan",
+        "address": "Jl. Lintas Sumatera Km 6, Penengahan",
+        "imageUrl": "assets/images/siang-malam.jpg",
+        "rating": "4.0",
+        "mapUrl": "https://goo.gl/maps/qMQRsuGhmrxAGXFg9",
+        "phone": "072733444",
+        "menus": [
+            {
+                "menu": "Nasi Uduk",
+                "price": "25.000",
+                "imageUrl": "https://asset.kompas.com/crops/YJXX1aIeNs-2WHjw4VJDWJBywT0=/0x0:1000x667/750x500/data/photo/2020/07/05/5f01435b5c965.jpg"
+            },
+            {
+                "menu": "Nasi Goreng",
+                "price": "23.000",
+                "imageUrl": "https://asset.kompas.com/crops/liot8ogozEEYAUXlZNXyGL0pTQc=/3x0:700x465/750x500/data/photo/2021/04/08/606e886b972ac.jpeg"
+            },
+            {
+                "menu": "Ayam Opor",
+                "price": "27.000",
+                "imageUrl": "https://asset.kompas.com/crops/VhBtjyhh4_yofTk-0OzaGD7s-7A=/0x0:1000x667/750x500/data/photo/2020/05/21/5ec67d4e9e153.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Rumah Makan Hikmah",
+        "location": "Lampung Timur",
+        "address": "Desa Teluk Dalem, Mataram Baru",
+        "imageUrl": "assets/images/hikmah.png",
+        "rating": "4.1",
+        "mapUrl": "https://goo.gl/maps/VciARcqiCPga2sXf7",
+        "phone": "082372997776",
+        "menus": [
+            {
+                "menu": "Rendang",
+                "price": "33.000",
+                "imageUrl": "https://awsimages.detik.net.id/community/media/visual/2020/11/24/rendang-3_169.jpeg?w=700&q=90"
+            },
+            {
+                "menu": "Udang Goreng Tepung",
+                "price": "24.000",
+                "imageUrl": "https://asset.kompas.com/crops/9bN7qNczvMfnIbWWdWcmcaGFaHk=/87x0:1164x718/750x500/data/photo/2020/08/05/5f2ad8eeb889e.jpg"
+            },
+            {
+                "menu": "Tongkol Sambal",
+                "price": "26.000",
+                "imageUrl": "https://i2.wp.com/resepkoki.id/wp-content/uploads/2020/02/Resep-Sambal-Tongkol.jpg?fit=1460%2C1458&ssl=1"
+            }
+        ]
+    },
+    {
+        "name": "Wisata Kuliner Dam Raman",
+        "location": "Lampung Timur",
+        "address": "Jl. IV, Wono Sari, Pekalongan",
+        "imageUrl": "assets/images/dam-raman.JPG",
+        "rating": "-",
+        "mapUrl": "https://goo.gl/maps/WJdYvZNpLNcPEFxT9",
+        "phone": "",
+        "menus": [
+            {
+                "menu": "Ikan Bakar",
+                "price": "30.000",
+                "imageUrl": "https://asset.kompas.com/crops/J0ARoySS4ZFviSelgHTMsxHPNv0=/0x0:1000x667/750x500/data/photo/2020/12/17/5fdb3cd0c1525.jpg"
+            },
+            {
+                "menu": "Ikan Goreng",
+                "price": "20.000",
+                "imageUrl": "https://kurio-img.kurioapps.com/20/04/29/393c094c-9606-49b1-8480-bae2a4a463f4.jpeg"
+            },
+            {
+                "menu": "Mie Goreng",
+                "price": "15.000",
+                "imageUrl": "https://asset.kompas.com/crops/vlWEq5NmvFZSH-Z6vq51J9aRCFA=/0x0:1000x667/750x500/data/photo/2020/11/03/5fa153edd14fb.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Dermaga Bom Kalianda",
+        "location": "Lampung Selatan",
+        "address": "-",
+        "imageUrl": "assets/images/dermaga-bom.jpg",
+        "rating": "-",
+        "mapUrl": "https://goo.gl/maps/p9WvknrsZznaezxq7",
+        "phone": "085267541089",
+        "menus": [
+            {
+                "menu": "Ikan Bakar",
+                "price": "30.000",
+                "imageUrl": "https://asset.kompas.com/crops/J0ARoySS4ZFviSelgHTMsxHPNv0=/0x0:1000x667/750x500/data/photo/2020/12/17/5fdb3cd0c1525.jpg"
+            },
+            {
+                "menu": "Ikan Goreng",
+                "price": "20.000",
+                "imageUrl": "https://kurio-img.kurioapps.com/20/04/29/393c094c-9606-49b1-8480-bae2a4a463f4.jpeg"
+            },
+            {
+                "menu": "Mie Goreng",
+                "price": "15.000",
+                "imageUrl": "https://asset.kompas.com/crops/vlWEq5NmvFZSH-Z6vq51J9aRCFA=/0x0:1000x667/750x500/data/photo/2020/11/03/5fa153edd14fb.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Pasar Kuliner Liwa",
+        "location": "Lampung Barat",
+        "address": "Kubu Perahu, Balik Bukit",
+        "imageUrl": "assets/images/pasar-liwa.jpg",
+        "rating": "4.0",
+        "mapUrl": "https://goo.gl/maps/7j4dG6LF3Z5iRqgv5",
+        "phone": "",
+        "menus": [
+            {
+                "menu": "Pindang Bandeng",
+                "price": "28.000",
+                "imageUrl": "https://asset.kompas.com/crops/5bC2ugvFO9QasnVVj3qMsuOvbTk=/0x206:360x446/750x500/data/photo/2020/08/14/5f36a00248ba1.jpeg"
+            },
+            {
+                "menu": "Udang Goreng Tepung",
+                "price": "24.000",
+                "imageUrl": "https://asset.kompas.com/crops/9bN7qNczvMfnIbWWdWcmcaGFaHk=/87x0:1164x718/750x500/data/photo/2020/08/05/5f2ad8eeb889e.jpg"
+            },
+            {
+                "menu": "Tongkol Sambal",
+                "price": "26.000",
+                "imageUrl": "https://i2.wp.com/resepkoki.id/wp-content/uploads/2020/02/Resep-Sambal-Tongkol.jpg?fit=1460%2C1458&ssl=1"
+            }
+        ]
+    }
+]

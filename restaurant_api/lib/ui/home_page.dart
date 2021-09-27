@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_api/data/model/restaurant.dart';
 import 'package:restaurant_api/provider/restaurant_provider.dart';
 import 'package:restaurant_api/ui/restaurant_list_page.dart';
 
@@ -21,35 +22,39 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: appBarTitle, actions: [
-        IconButton(
-          icon: Icon(icon),
-          onPressed: () {
-            setState(() {
-              if (icon == Icons.search) {
-                icon = Icons.search;
-                appBarTitle = TextField(
-                  // controller = controller,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: "Search...",
-                  ),
-                  onChanged: (value) {
+    return ChangeNotifierProvider<RestaurantProvider>(
+        create: (_) => RestaurantProvider(service: ApiService()),
+        child: Scaffold(
+          appBar: AppBar(title: appBarTitle, actions: [
+            Consumer<RestaurantProvider>(
+              builder: (c, s, _) {
+                return IconButton(
+                  icon: Icon(icon),
+                  onPressed: () {
                     setState(() {
-                      controller.text = value;
+                      if (icon == Icons.search) {
+                        icon = Icons.search;
+                        appBarTitle = TextField(
+                          // controller = controller,
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            hintText: "Search...",
+                          ),
+                          onChanged: (value) {
+                            s.search(value);
+                            setState(() {
+                              controller.text = value;
+                            });
+                          },
+                        );
+                      }
                     });
                   },
                 );
-              }
-            });
-          },
-        )
-      ]),
-      body: ChangeNotifierProvider<RestaurantProvider>(
-        create: (_) => RestaurantProvider(service: ApiService()),
-        child: const RestaurantList(),
-      ),
-    );
+              },
+            )
+          ]),
+          body: const RestaurantList(),
+        ));
   }
 }

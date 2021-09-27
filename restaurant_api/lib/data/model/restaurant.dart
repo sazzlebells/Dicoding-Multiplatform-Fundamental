@@ -32,8 +32,14 @@ class RestaurantResult {
         "error": error,
         "message": message,
         "count": count,
-        "restaurants": List<dynamic>.from(restaurants!.map((x) => x.toJson())),
+        "restaurants":
+            List<Restaurant>.from(restaurants!.map((x) => x.toJson())),
       };
+  RestaurantResult.empty()
+      : error = false,
+        count = 0,
+        message = '',
+        restaurants = List<Restaurant>.empty();
 }
 
 class Restaurant {
@@ -70,4 +76,11 @@ class Restaurant {
         "city": city,
         "rating": rating,
       };
+  Restaurant.empty()
+      : id = '',
+        name = '',
+        description = '',
+        pictureId = '',
+        city = '',
+        rating = 0.0;
 }

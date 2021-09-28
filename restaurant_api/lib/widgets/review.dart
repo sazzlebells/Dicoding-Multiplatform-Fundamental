@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_api/common/style.dart';
-import 'package:restaurant_api/data/model/detail.dart';
+import 'package:restaurant_api/data/model/customer_review.dart';
 
 class ReviewTile extends StatelessWidget {
   const ReviewTile({Key? key, required this.review}) : super(key: key);

@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:restaurant_api/data/model/category.dart';
+import 'package:restaurant_api/data/model/customer_review.dart';
+import 'package:restaurant_api/data/model/menu.dart';
 
 RestaurantDetail restaurantDetailFromJson(String str) =>
     RestaurantDetail.fromJson(json.decode(str));
@@ -29,6 +32,11 @@ class RestaurantDetail {
         "message": message,
         "restaurant": restaurant!.toJson(),
       };
+
+  RestaurantDetail.empty()
+      : error = false,
+        message = '',
+        restaurant = Detail.empty();
 }
 
 class Detail {
@@ -84,66 +92,16 @@ class Detail {
         "customerReviews":
             List<dynamic>.from(customerReviews!.map((x) => x.toJson())),
       };
-}
 
-class Category {
-  Category({
-    this.name,
-  });
-
-  String? name;
-
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "name": name,
-      };
-}
-
-class CustomerReview {
-  CustomerReview({
-    this.name,
-    this.review,
-    this.date,
-  });
-
-  String? name;
-  String? review;
-  String? date;
-
-  factory CustomerReview.fromJson(Map<String, dynamic> json) => CustomerReview(
-        name: json["name"],
-        review: json["review"],
-        date: json["date"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "review": review,
-        "date": date,
-      };
-}
-
-class Menus {
-  Menus({
-    this.foods,
-    this.drinks,
-  });
-
-  List<Category>? foods;
-  List<Category>? drinks;
-
-  factory Menus.fromJson(Map<String, dynamic> json) => Menus(
-        foods:
-            List<Category>.from(json["foods"].map((x) => Category.fromJson(x))),
-        drinks: List<Category>.from(
-            json["drinks"].map((x) => Category.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "foods": List<dynamic>.from(foods!.map((x) => x.toJson())),
-        "drinks": List<dynamic>.from(drinks!.map((x) => x.toJson())),
-      };
+  Detail.empty()
+      : id = "",
+        name = "",
+        description = "",
+        city = "",
+        address = "",
+        pictureId = "",
+        categories = List<Category>.empty(),
+        menus = Menus.empty(),
+        rating = 0.0,
+        customerReviews = List<CustomerReview>.empty();
 }

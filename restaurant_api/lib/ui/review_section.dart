@@ -9,7 +9,7 @@ class ReviewSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: review!.customerReviews!.length,
         itemBuilder: (context, i) {

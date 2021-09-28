@@ -6,6 +6,7 @@ import 'package:restaurant_api/ui/detail_page.dart';
 import 'package:restaurant_api/ui/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

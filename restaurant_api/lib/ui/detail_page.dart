@@ -3,37 +3,42 @@ import 'package:provider/provider.dart';
 import 'package:restaurant_api/common/enums.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
+import 'package:restaurant_api/data/model/category.dart';
 import 'package:restaurant_api/data/model/detail.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
 import 'package:restaurant_api/provider/detail_provider.dart';
 import 'package:restaurant_api/ui/review_section.dart';
+import 'package:restaurant_api/ui/table.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key, required this.restaurant}) : super(key: key);
   static const routeName = "/detail";
   static ApiService _service = ApiService();
-  final Restaurant restaurant;
+  final Restaurant? restaurant;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("${restaurant.name}")),
+      appBar: AppBar(title: Text("${restaurant!.name}")),
       body: ChangeNotifierProvider<DetailProvider>(
-        create: (_) =>
-            DetailProvider(service: ApiService(), id: restaurant.id.toString()),
+        create: (_) => DetailProvider(
+          service: ApiService(),
+          id: restaurant!.id.toString(),
+          context: context,
+        ),
         child: Consumer<DetailProvider>(
           builder: (context, state, _) {
             var _state = state.state;
             var data = state.result!.restaurant;
 
             if (_state == ResultState.Loading) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (_state == ResultState.HasData) {
               return _body(context, data);
             } else if (_state == ResultState.NoData) {
               return Center(child: Text(state.message));
             } else {
-              return Center(child: Text(""));
+              return const Center(child: Text(""));
             }
           },
         ),
@@ -65,7 +70,7 @@ class DetailPage extends StatelessWidget {
                           'Location: ${data.city}',
                           style: Theme.of(context).textTheme.subtitle2,
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           'Rating: ${data.rating}',
                           style: Theme.of(context).textTheme.subtitle2,
@@ -81,22 +86,22 @@ class DetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text("Description", style: myTextTheme.headline5),
-                Divider(color: Colors.grey),
+                const Divider(color: Colors.grey),
                 Text(
                   data.description ?? "",
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text("Menu", style: myTextTheme.headline5),
-                Divider(color: Colors.grey),
-                Table(),
-                SizedBox(height: 15),
-                SizedBox(height: 15),
+                const Divider(color: Colors.grey),
+                MenuSection(menu: data.menus),
+                const SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text("Reviews (${data.customerReviews!.length})",
                     style: myTextTheme.headline5),
-                Divider(color: Colors.grey),
+                const Divider(color: Colors.grey),
               ],
             ),
           ),

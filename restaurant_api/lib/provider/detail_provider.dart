@@ -6,26 +6,28 @@ import 'package:restaurant_api/data/model/detail.dart';
 class DetailProvider extends ChangeNotifier {
   final ApiService service;
   final String id;
+  final BuildContext context;
 
-  DetailProvider({required this.service, required this.id}) {
+  DetailProvider(
+      {required this.service, required this.id, required this.context}) {
     _fetchAllDetail(id);
   }
 
-  late RestaurantDetail _restaurantDetail;
+  RestaurantDetail? _restaurantDetail = RestaurantDetail.empty();
   String _message = "";
-  late ResultState _state;
+  ResultState? _state = ResultState.Loading;
 
   String get message => _message;
 
-  RestaurantDetail get result => _restaurantDetail;
+  RestaurantDetail? get result => _restaurantDetail;
 
-  ResultState get state => _state;
+  ResultState? get state => _state;
 
   Future<dynamic> _fetchAllDetail(String id) async {
     try {
       _state = ResultState.Loading;
       notifyListeners();
-      final detail = await service.restaurantDetail(id);
+      final detail = await service.restaurantDetail(id, context);
       if (detail!.restaurant!.name == "") {
         _state = ResultState.NoData;
         notifyListeners();

@@ -1,34 +1,5 @@
 import 'package:flutter/material.dart';
-
-final Map<int, Color> customPink = {
-  50: const Color.fromRGBO(222, 113, 187, .1),
-  100: const Color.fromRGBO(222, 113, 187, .2),
-  200: const Color.fromRGBO(222, 113, 187, .3),
-  300: const Color.fromRGBO(222, 113, 187, .4),
-  400: const Color.fromRGBO(222, 113, 187, .5),
-  500: const Color.fromRGBO(222, 113, 187, .6),
-  600: const Color.fromRGBO(222, 113, 187, .7),
-  700: const Color.fromRGBO(222, 113, 187, .8),
-  800: const Color.fromRGBO(222, 113, 187, .9),
-  900: const Color.fromRGBO(222, 113, 187, 1),
-};
-
-final Map<int, Color> customPurple = {
-  50: const Color.fromRGBO(122, 68, 145, .1),
-  100: const Color.fromRGBO(122, 68, 145, .2),
-  200: const Color.fromRGBO(122, 68, 145, .3),
-  300: const Color.fromRGBO(122, 68, 145, .4),
-  400: const Color.fromRGBO(122, 68, 145, .5),
-  500: const Color.fromRGBO(122, 68, 145, .6),
-  600: const Color.fromRGBO(122, 68, 145, .7),
-  700: const Color.fromRGBO(122, 68, 145, .8),
-  800: const Color.fromRGBO(122, 68, 145, .9),
-  900: const Color.fromRGBO(122, 68, 145, 1),
-};
-
-final MaterialColor primaryColor = MaterialColor(0xFFDE71BB, customPink);
-final MaterialColor secondaryColor = MaterialColor(0xFF7A4491, customPurple);
-Color cBackground = const Color.fromRGBO(221, 234, 243, 1);
+import 'package:restaurant_api/common/color.dart';
 
 TextTheme myTextTheme = const TextTheme(
   headline1: TextStyle(
@@ -90,4 +61,36 @@ TextTheme myTextTheme = const TextTheme(
       fontWeight: FontWeight.w300,
       fontFamily: "Lato",
       letterSpacing: 1.5),
+);
+
+ThemeData lightTheme = ThemeData(
+  primarySwatch: primaryColor,
+  accentColor: secondaryColor,
+  scaffoldBackgroundColor: Colors.white,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  textTheme: myTextTheme,
+  appBarTheme:
+      AppBarTheme(textTheme: myTextTheme.apply(bodyColor: primaryColor)),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: secondaryColor,
+      textStyle: myTextTheme.button,
+    ),
+  ),
+);
+
+ThemeData darkTheme = ThemeData(
+  primarySwatch: darkPrimaryColor,
+  accentColor: darkSecondaryColor,
+  scaffoldBackgroundColor: Colors.white,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  textTheme: myTextTheme,
+  appBarTheme:
+      AppBarTheme(textTheme: myTextTheme.apply(bodyColor: darkPrimaryColor)),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: darkSecondaryColor,
+      textStyle: myTextTheme.button,
+    ),
+  ),
 );

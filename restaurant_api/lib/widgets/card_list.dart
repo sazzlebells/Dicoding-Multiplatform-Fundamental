@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
+import 'package:restaurant_api/provider/database_provider.dart';
 import 'package:restaurant_api/ui/detail_page.dart';
 
 class CardRestaurant extends StatelessWidget {
@@ -11,20 +13,42 @@ class CardRestaurant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        tileColor: Colors.white,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        leading: _leading(),
-        title: Text(restaurant!.name.toString(), style: myTextTheme.headline6),
-        subtitle: _subtitle(),
-        onTap: () => Navigator.pushNamed(
-          context,
-          DetailPage.routeName,
-          arguments: restaurant,
-        ),
-      ),
+    return Consumer<DatabaseProvider>(
+      builder: (context, provider, child) {
+        return FutureBuilder<bool>(
+            future: provider.isFavorited(restaurant!.id!),
+            builder: (context, snapshot) {
+              var isFavorited = snapshot.data ?? false;
+              return Card(
+                child: ListTile(
+                  tileColor: Colors.white,
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  leading: _leading(),
+                  title: Text(restaurant!.name.toString(),
+                      style: myTextTheme.headline6),
+                  subtitle: _subtitle(),
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    DetailPage.routeName,
+                    arguments: restaurant,
+                  ),
+                  trailing: isFavorited
+                      ? IconButton(
+                          icon: Icon(Icons.favorite),
+                          color: Theme.of(context).accentColor,
+                          onPressed: () =>
+                              provider.removeFavorite(restaurant!.id!),
+                        )
+                      : IconButton(
+                          icon: Icon(Icons.favorite_border),
+                          color: Theme.of(context).accentColor,
+                          onPressed: () => provider.addFavorite(restaurant!),
+                        ),
+                ),
+              );
+            });
+      },
     );
   }
 

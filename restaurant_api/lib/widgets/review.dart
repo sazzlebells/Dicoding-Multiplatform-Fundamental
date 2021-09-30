@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_api/common/color.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/model/customer_review.dart';
 

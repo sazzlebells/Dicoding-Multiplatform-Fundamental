@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_api/common/enums.dart';
+import 'package:restaurant_api/utils/enums.dart';
 import 'package:restaurant_api/provider/restaurant_provider.dart';
 import 'package:restaurant_api/widgets/card_list.dart';
 

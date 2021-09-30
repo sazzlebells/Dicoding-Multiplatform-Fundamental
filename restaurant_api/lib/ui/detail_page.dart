@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_api/common/enums.dart';
+import 'package:restaurant_api/utils/enums.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
 import 'package:restaurant_api/data/model/category.dart';
@@ -15,6 +15,7 @@ class DetailPage extends StatelessWidget {
   static const routeName = "/detail";
   static ApiService _service = ApiService();
   final Restaurant? restaurant;
+  static bool? isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +52,23 @@ class DetailPage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Hero(
-            tag: data!.pictureId.toString(),
-            child: Image.network(_service.getPicture + "${data.pictureId}"),
+          Stack(
+            children: [
+              Hero(
+                tag: data!.pictureId.toString(),
+                child: Image.network(_service.getPicture + "${data.pictureId}"),
+              ),
+              Positioned(
+                  right: 25,
+                  top: 25,
+                  child: FloatingActionButton(
+                    onPressed: () {},
+                    child: isFavorite!
+                        ? const Icon(Icons.favorite, color: Colors.red)
+                        : const Icon(Icons.favorite_border,
+                            color: Colors.white),
+                  )),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -119,7 +134,6 @@ class DetailPage extends StatelessWidget {
         labelStyle: myTextTheme.overline,
       ));
     }
-
     return chip;
   }
 }

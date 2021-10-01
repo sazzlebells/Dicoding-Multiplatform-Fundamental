@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_api/data/db/database_helper.dart';
+import 'package:restaurant_api/provider/database_provider.dart';
 import 'package:restaurant_api/provider/restaurant_provider.dart';
+import 'package:restaurant_api/ui/favorite_page.dart';
 import 'package:restaurant_api/ui/restaurant_list_page.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
 
@@ -30,9 +33,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ConnectivityBuilder(builder: (context, isConnected, status) {
       return isConnected == true
-          ? ChangeNotifierProvider<RestaurantProvider>(
-              create: (_) =>
-                  RestaurantProvider(service: ApiService(), context: context),
+          ? MultiProvider(
+              providers: [
+                  ChangeNotifierProvider(
+                      create: (_) =>
+                          DatabaseProvider(dbHelper: DatabaseHelper())),
+                  ChangeNotifierProvider<RestaurantProvider>(
+                    create: (_) => RestaurantProvider(
+                        service: ApiService(), context: context),
+                  ),
+                ],
               child: Scaffold(
                 appBar: AppBar(title: appBarTitle, actions: [
                   Consumer<RestaurantProvider>(
@@ -60,7 +70,11 @@ class _HomePageState extends State<HomePage> {
                         },
                       );
                     },
-                  )
+                  ),
+                  IconButton(
+                      icon: const Icon(Icons.favorite),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, FavoritePage.routeName)),
                 ]),
                 body: const RestaurantList(),
               ))

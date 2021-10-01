@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:restaurant_api/common/color.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
 import 'package:restaurant_api/ui/detail_page.dart';
+import 'package:restaurant_api/ui/favorite_page.dart';
 import 'package:restaurant_api/ui/home_page.dart';
 
 void main() {
@@ -39,8 +41,11 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (context) => const HomePage(),
         DetailPage.routeName: (context) => DetailPage(
-            restaurant:
-                ModalRoute.of(context)?.settings.arguments as Restaurant),
+              restaurant:
+                  ModalRoute.of(context)?.settings.arguments as Restaurant,
+              // isFavorite: ModalRoute.of(context)?.settings.arguments as bool,
+            ),
+        FavoritePage.routeName: (context) => const FavoritePage(),
       },
     );
   }

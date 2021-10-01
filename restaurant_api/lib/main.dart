@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_api/common/color.dart';
 import 'package:restaurant_api/common/style.dart';
+import 'package:restaurant_api/data/api/api_service.dart';
+import 'package:restaurant_api/data/db/database_helper.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
+import 'package:restaurant_api/provider/database_provider.dart';
+import 'package:restaurant_api/provider/restaurant_provider.dart';
 import 'package:restaurant_api/ui/detail_page.dart';
 import 'package:restaurant_api/ui/favorite_page.dart';
 import 'package:restaurant_api/ui/home_page.dart';
@@ -21,6 +26,20 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
 
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (_) => DatabaseProvider(dbHelper: DatabaseHelper())),
+        ChangeNotifierProvider<RestaurantProvider>(
+          create: (_) =>
+              RestaurantProvider(service: ApiService(), context: context),
+        ),
+      ],
+      child: _materialApp(),
+    );
+  }
+
+  MaterialApp _materialApp() {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wisata Kuliner Lampung',

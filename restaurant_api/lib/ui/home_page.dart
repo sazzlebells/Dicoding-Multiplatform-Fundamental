@@ -33,51 +33,41 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ConnectivityBuilder(builder: (context, isConnected, status) {
       return isConnected == true
-          ? MultiProvider(
-              providers: [
-                  ChangeNotifierProvider(
-                      create: (_) =>
-                          DatabaseProvider(dbHelper: DatabaseHelper())),
-                  ChangeNotifierProvider<RestaurantProvider>(
-                    create: (_) => RestaurantProvider(
-                        service: ApiService(), context: context),
-                  ),
-                ],
-              child: Scaffold(
-                appBar: AppBar(title: appBarTitle, actions: [
-                  Consumer<RestaurantProvider>(
-                    builder: (c, s, _) {
-                      return IconButton(
-                        icon: Icon(icon),
-                        onPressed: () {
-                          setState(() {
-                            if (icon == Icons.search) {
-                              icon = Icons.search;
-                              appBarTitle = TextField(
-                                decoration: const InputDecoration(
-                                  prefixIcon: Icon(Icons.search),
-                                  hintText: "Search...",
-                                ),
-                                onChanged: (value) {
-                                  s.search(value);
-                                  setState(() {
-                                    controller.text = value;
-                                  });
-                                },
-                              );
-                            }
-                          });
-                        },
-                      );
-                    },
-                  ),
-                  IconButton(
-                      icon: const Icon(Icons.favorite),
-                      onPressed: () =>
-                          Navigator.pushNamed(context, FavoritePage.routeName)),
-                ]),
-                body: const RestaurantList(),
-              ))
+          ? Scaffold(
+              appBar: AppBar(title: appBarTitle, actions: [
+                Consumer<RestaurantProvider>(
+                  builder: (c, s, _) {
+                    return IconButton(
+                      icon: Icon(icon),
+                      onPressed: () {
+                        setState(() {
+                          if (icon == Icons.search) {
+                            icon = Icons.search;
+                            appBarTitle = TextField(
+                              decoration: const InputDecoration(
+                                prefixIcon: Icon(Icons.search),
+                                hintText: "Search...",
+                              ),
+                              onChanged: (value) {
+                                s.search(value);
+                                setState(() {
+                                  controller.text = value;
+                                });
+                              },
+                            );
+                          }
+                        });
+                      },
+                    );
+                  },
+                ),
+                IconButton(
+                    icon: const Icon(Icons.favorite),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, FavoritePage.routeName)),
+              ]),
+              body: const RestaurantList(),
+            )
           : const Scaffold(
               body: Center(
                 child: Text("No Internet Connection"),

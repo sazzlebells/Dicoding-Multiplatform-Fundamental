@@ -5,11 +5,9 @@ import 'package:restaurant_api/data/model/restaurant.dart';
 
 class RestaurantProvider extends ChangeNotifier {
   final ApiService service;
-  final BuildContext context;
 
   RestaurantProvider({
     required this.service,
-    required this.context,
   }) {
     _fetchAllRestaurant();
   }
@@ -29,7 +27,7 @@ class RestaurantProvider extends ChangeNotifier {
     try {
       _state = ResultState.Loading;
       notifyListeners();
-      final restaurant = await service.restaurantName(context);
+      final restaurant = await service.restaurantName();
 
       if (restaurant!.restaurants!.isEmpty) {
         _state = ResultState.NoData;

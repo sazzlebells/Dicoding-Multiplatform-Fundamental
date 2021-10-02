@@ -27,7 +27,7 @@ class DetailProvider extends ChangeNotifier {
     try {
       _state = ResultState.Loading;
       notifyListeners();
-      final detail = await service.restaurantDetail(id, context);
+      final detail = await service.restaurantDetail(id);
       if (detail!.restaurant!.name == "") {
         _state = ResultState.NoData;
         notifyListeners();

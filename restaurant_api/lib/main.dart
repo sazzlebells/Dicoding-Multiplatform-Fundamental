@@ -31,8 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
             create: (_) => DatabaseProvider(dbHelper: DatabaseHelper())),
         ChangeNotifierProvider<RestaurantProvider>(
-          create: (_) =>
-              RestaurantProvider(service: ApiService(), context: context),
+          create: (_) => RestaurantProvider(service: ApiService()),
         ),
       ],
       child: _materialApp(),

@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/preferences/preferences_helper.dart';
 
 class PreferencesProvider extends ChangeNotifier {
@@ -33,4 +35,6 @@ class PreferencesProvider extends ChangeNotifier {
     preferencesHelper.setDailyResto(value);
     _getDailyRestoPreferences();
   }
+
+  ThemeData get themeData => _isDarkTheme ? darkTheme : lightTheme;
 }

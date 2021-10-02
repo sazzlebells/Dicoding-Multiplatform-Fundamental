@@ -57,7 +57,7 @@ class Restaurant {
   String? description;
   String? pictureId;
   String? city;
-  double? rating;
+  String? rating;
 
   factory Restaurant.fromJson(Map<String, dynamic> json) => Restaurant(
         id: json["id"],
@@ -65,7 +65,7 @@ class Restaurant {
         description: json["description"],
         pictureId: json["pictureId"],
         city: json["city"],
-        rating: json["rating"].toDouble(),
+        rating: json["rating"].toString(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -74,7 +74,7 @@ class Restaurant {
         "description": description,
         "pictureId": pictureId,
         "city": city,
-        "rating": rating,
+        "rating": rating.toString(),
       };
   Restaurant.empty()
       : id = '',
@@ -82,5 +82,5 @@ class Restaurant {
         description = '',
         pictureId = '',
         city = '',
-        rating = 0.0;
+        rating = "0.0";
 }

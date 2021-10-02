@@ -61,7 +61,7 @@ class Detail {
   String? pictureId;
   List<Category>? categories;
   Menus? menus;
-  double? rating;
+  String? rating;
   List<CustomerReview>? customerReviews;
 
   factory Detail.fromJson(Map<String, dynamic> json) => Detail(
@@ -74,7 +74,7 @@ class Detail {
         categories: List<Category>.from(
             json["categories"].map((x) => Category.fromJson(x))),
         menus: Menus.fromJson(json["menus"]),
-        rating: json["rating"].toDouble(),
+        rating: json["rating"].toString(),
         customerReviews: List<CustomerReview>.from(
             json["customerReviews"].map((x) => CustomerReview.fromJson(x))),
       );
@@ -88,7 +88,7 @@ class Detail {
         "pictureId": pictureId,
         "categories": List<dynamic>.from(categories!.map((x) => x.toJson())),
         "menus": menus!.toJson(),
-        "rating": rating,
+        "rating": rating.toString(),
         "customerReviews":
             List<dynamic>.from(customerReviews!.map((x) => x.toJson())),
       };
@@ -102,6 +102,6 @@ class Detail {
         pictureId = "",
         categories = List<Category>.empty(),
         menus = Menus.empty(),
-        rating = 0.0,
+        rating = "0.0",
         customerReviews = List<CustomerReview>.empty();
 }

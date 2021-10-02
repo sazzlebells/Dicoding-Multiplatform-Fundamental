@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_api/common/color.dart';
+import 'package:restaurant_api/provider/database_provider.dart';
 import 'package:restaurant_api/utils/enums.dart';
 import 'package:restaurant_api/common/style.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
@@ -61,13 +63,32 @@ class DetailPage extends StatelessWidget {
               Positioned(
                   right: 25,
                   top: 25,
-                  child: FloatingActionButton(
-                    onPressed: () {},
-                    child: isFavorite!
-                        ? const Icon(Icons.favorite, color: Colors.red)
-                        : const Icon(Icons.favorite_border,
-                            color: Colors.white),
-                  )),
+                  child: Consumer<DatabaseProvider>(
+                      builder: (context, provider, child) {
+                    return FutureBuilder<bool>(
+                        future: provider.isFavorited(data.id!),
+                        builder: (context, snapshot) {
+                          var isFav = snapshot.data ?? false;
+                          return FloatingActionButton(
+                            onPressed: () {
+                              Restaurant r = Restaurant(
+                                name: data.name,
+                                city: data.city,
+                                description: data.description,
+                                id: data.id,
+                                pictureId: data.pictureId,
+                              );
+                              isFav
+                                  ? provider.removeFavorite(data.id!)
+                                  : provider.addFavorite(r);
+                            },
+                            child: isFav
+                                ? Icon(Icons.favorite, color: Colors.red[300])
+                                : const Icon(Icons.favorite_border,
+                                    color: Colors.white),
+                          );
+                        });
+                  })),
             ],
           ),
           Padding(

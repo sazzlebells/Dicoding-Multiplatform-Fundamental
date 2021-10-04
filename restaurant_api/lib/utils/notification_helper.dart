@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:restaurant_api/common/navigation.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
+import 'package:restaurant_api/ui/detail_page.dart';
 import 'package:rxdart/subjects.dart';
 
 final selectNotificationSubject = BehaviorSubject<String>();
@@ -33,6 +34,7 @@ class NotificationHelper {
         onSelectNotification: (String? payload) async {
       if (payload != null) {
         print('notification payload: ' + payload);
+        configureSelectNotificationSubject(DetailPage.routeName);
       }
       selectNotificationSubject.add(payload!);
     });
@@ -67,9 +69,10 @@ class NotificationHelper {
         payload: json.encode(restaurant.toJson()));
   }
 
-  void configureSelectNotificationSubject(String route) {
+  Future configureSelectNotificationSubject(String route) async {
     selectNotificationSubject.stream.listen(
       (String payload) async {
+        print('open restaurant here from notif');
         var restaurant = Restaurant.fromJson(json.decode(payload));
         Navigation.intentWithData(route, restaurant);
       },

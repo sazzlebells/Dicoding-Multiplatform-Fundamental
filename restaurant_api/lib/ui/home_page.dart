@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget appBarTitle = const Text("My Resto");
   IconData icon = Icons.search;
   TextEditingController controller = new TextEditingController();
+  bool _isPressed = false;
 
   @override
   void initState() {
@@ -55,22 +56,34 @@ class _HomePageState extends State<HomePage> {
           icon: Icon(icon),
           onPressed: () {
             setState(() {
-              if (icon == Icons.search) {
-                icon = Icons.search;
-                appBarTitle = TextField(
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: "Search...",
-                  ),
-                  onChanged: (value) {
-                    s.search(value);
-                    setState(() {
-                      controller.text = value;
-                    });
-                  },
-                );
-              }
+              _isPressed = !_isPressed;
             });
+            if (_isPressed) {
+              icon = Icons.close;
+              appBarTitle = TextField(
+                controller: controller,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  hintText: "Search...",
+                  hintStyle: TextStyle(color: Colors.white),
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    if (value != "" || value.isNotEmpty) {
+                      s.searchRestaurants(value);
+                    } else {
+                      s.fetchAllRestaurant();
+                    }
+                  });
+                },
+              );
+            } else {
+              appBarTitle = const Text("My Resto");
+              icon = Icons.search;
+              setState(() {
+                s.fetchAllRestaurant();
+              });
+            }
           },
         );
       },

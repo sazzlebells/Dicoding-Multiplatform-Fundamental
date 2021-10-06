@@ -9,21 +9,23 @@ class RestaurantProvider extends ChangeNotifier {
   RestaurantProvider({
     required this.service,
   }) {
-    _fetchAllRestaurant();
+    fetchAllRestaurant();
   }
 
   RestaurantResult? _restaurantResult = RestaurantResult.empty();
+  RestaurantResult? get result => _restaurantResult;
   RestaurantResult? _tmpRestaurantResult = RestaurantResult.empty();
-  String _message = "";
-  ResultState? _state = ResultState.Loading;
 
+  String _message = "";
   String get message => _message;
 
-  RestaurantResult? get result => _restaurantResult;
+  String _query = '';
+  String get query => _query;
 
+  ResultState? _state = ResultState.Loading;
   ResultState? get state => _state;
 
-  Future<dynamic> _fetchAllRestaurant() async {
+  Future<dynamic> fetchAllRestaurant() async {
     try {
       _state = ResultState.Loading;
       notifyListeners();
@@ -46,26 +48,25 @@ class RestaurantProvider extends ChangeNotifier {
     }
   }
 
-  Future search(String query) async {
-    List<Restaurant> _data = _restaurantResult!.restaurants!;
-    List<Restaurant> _queryData = [];
-    if (query == '') {
-      _fetchAllRestaurant();
-      _state = ResultState.HasData;
+  Future<dynamic> searchRestaurants(String query) async {
+    try {
+      _state = ResultState.Loading;
+      _query = query;
       notifyListeners();
-
-      return _restaurantResult;
-    } else {
-      _data.forEach((element) {
-        if (element.name!.toLowerCase().contains(query)) {
-          _queryData.add(element);
-        }
-      });
-      _state = ResultState.HasData;
-      _restaurantResult!.restaurants?.clear();
-      _restaurantResult!.restaurants?.addAll(_queryData);
+      final result = await service.search(query);
+      if (result!.restaurants!.isEmpty) {
+        _state = ResultState.NoData;
+        notifyListeners();
+        return _message = 'Not found';
+      } else {
+        _state = ResultState.HasData;
+        notifyListeners();
+        return _restaurantResult = result;
+      }
+    } catch (e) {
+      _state = ResultState.Error;
       notifyListeners();
-      return _restaurantResult;
+      return _message = '$e';
     }
   }
 }

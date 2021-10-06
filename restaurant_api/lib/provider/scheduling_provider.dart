@@ -17,9 +17,9 @@ class SchedulingProvider extends ChangeNotifier {
         Duration(days: 1),
         1,
         BackgroundService.callback,
-        // startAt: DateTimeHelper.format(),
-        // exact: true,
-        // wakeup: true,
+        startAt: DateTimeHelper.format(),
+        exact: true,
+        wakeup: true,
       );
     } else {
       print('Scheduling Daily Restaurant Canceled');

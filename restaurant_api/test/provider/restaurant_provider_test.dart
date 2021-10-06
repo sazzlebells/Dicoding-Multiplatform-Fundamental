@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:restaurant_api/data/api/api_service.dart';
 import 'package:restaurant_api/data/model/restaurant.dart';
-import 'package:restaurant_api/data/model/search.dart';
 import 'package:restaurant_api/provider/restaurant_provider.dart';
 
 class MockApiService extends Mock implements ApiService {}
@@ -76,7 +75,7 @@ void main() {
 
     test('should verify that restaurant search run as expected', () async {
       when(apiService!.search('melting')).thenAnswer(
-          (realInvocation) async => SearchResult.fromJson(searchResponse));
+          (realInvocation) async => RestaurantResult.fromJson(searchResponse));
       var result = provider!.result!.restaurants![0];
       var jsonResto = Restaurant.fromJson(testResto);
 

@@ -21,7 +21,7 @@ class DatabaseProvider extends ChangeNotifier {
 
   void _getFavorites() async {
     _favorites = await dbHelper.getFavorites();
-    if (_favorites.length > 0) {
+    if (_favorites.isNotEmpty) {
       _state = ResultState.HasData;
     } else {
       _state = ResultState.NoData;

@@ -35,13 +35,13 @@ class CardRestaurant extends StatelessWidget {
                   ),
                   trailing: isFavorited
                       ? IconButton(
-                          icon: Icon(Icons.favorite),
+                          icon: const Icon(Icons.favorite),
                           color: Theme.of(context).accentColor,
                           onPressed: () =>
                               provider.removeFavorite(restaurant!.id!),
                         )
                       : IconButton(
-                          icon: Icon(Icons.favorite_border),
+                          icon: const Icon(Icons.favorite_border),
                           color: Theme.of(context).accentColor,
                           onPressed: () => provider.addFavorite(restaurant!),
                         ),

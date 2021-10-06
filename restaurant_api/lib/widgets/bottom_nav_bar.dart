@@ -14,11 +14,11 @@ class BottomNavBar extends StatelessWidget {
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
         BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
       ],
-      currentIndex: this.selectedMenu == MenuState.home ? 0 : 1,
+      currentIndex: selectedMenu == MenuState.home ? 0 : 1,
       onTap: (value) {
         value == 0
-            ? Navigator.pushNamed(context, HomePage.routeName)
-            : Navigator.pushNamed(context, SettingsPage.routeName);
+            ? Navigator.pushReplacementNamed(context, HomePage.routeName)
+            : Navigator.pushReplacementNamed(context, SettingsPage.routeName);
       },
     );
   }

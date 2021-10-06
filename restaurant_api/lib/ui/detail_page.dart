@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_api/common/color.dart';
 import 'package:restaurant_api/provider/database_provider.dart';
 import 'package:restaurant_api/utils/enums.dart';
 import 'package:restaurant_api/common/style.dart';

@@ -1,3 +1,3 @@
-enum MenuState { home, favorite, setting }
+enum MenuState { home, setting }
 
 enum ResultState { Loading, NoData, HasData, Error }
